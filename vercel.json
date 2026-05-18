@@ -1,0 +1,30 @@
+{
+  "rewrites": [
+    { "source": "/",                  "destination": "/index.html" },
+    { "source": "/risk-analysis",     "destination": "/index.html" },
+    { "source": "/scenarios",         "destination": "/index.html" },
+    { "source": "/exposure",          "destination": "/index.html" },
+    { "source": "/fixed-income",      "destination": "/index.html" },
+    { "source": "/products",          "destination": "/index.html" },
+    { "source": "/investment-plan",   "destination": "/index.html" },
+    { "source": "/custom-scenario",   "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options",  "value": "nosniff" },
+        { "key": "X-Frame-Options",         "value": "DENY" },
+        { "key": "X-XSS-Protection",        "value": "1; mode=block" },
+        { "key": "Referrer-Policy",         "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy",      "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
+  ]
+}
